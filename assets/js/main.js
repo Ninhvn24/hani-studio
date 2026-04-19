@@ -1,10 +1,7 @@
-// language + theme state
+// language state
 const state = {
-  lang: localStorage.getItem("lang") || "en",
-  theme: localStorage.getItem("theme") || "light"
+  lang: localStorage.getItem("lang") || "en"
 };
-
-document.documentElement.setAttribute("data-theme", state.theme);
 
 // Apply language
 function applyLang(lang){
@@ -27,30 +24,11 @@ function toggleLang(){
   applyLang(state.lang === "en" ? "vi" : "en");
 }
 
-// Toggle theme
-function toggleTheme(){
-  state.theme = (state.theme === "light") ? "dark" : "light";
-  localStorage.setItem("theme", state.theme);
-  document.documentElement.setAttribute("data-theme", state.theme);
-
-  const themeBtn = document.getElementById("themeBtn");
-  if(themeBtn){
-    themeBtn.textContent = (state.theme === "light") ? "☾" : "☼";
-  }
-}
-
 // Init controls
 document.addEventListener("DOMContentLoaded", ()=>{
   const langBtn = document.getElementById("langBtn");
-  const themeBtn = document.getElementById("themeBtn");
 
   if(langBtn) langBtn.addEventListener("click", toggleLang);
-  if(themeBtn) themeBtn.addEventListener("click", toggleTheme);
-
-  // set initial button icons
-  if(themeBtn){
-    themeBtn.textContent = (state.theme === "light") ? "☾" : "☼";
-  }
 
   applyLang(state.lang);
 

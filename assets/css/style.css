@@ -1,24 +1,13 @@
 :root {
-    --bg: #dfd3bd;       /* Màu be trầm, giống giấy thảo cũ */
-    --bg2: #d2c4aa;      /* Màu tối hơn một chút cho hiệu ứng nền đổ bóng */
-    --text: #2c2a25;     /* Màu mực nâu đen, bớt gắt hơn màu đen thuần */
-    --muted: #6b6354;    /* Màu chữ phụ trầm hơn */
-    --accent: #5C161E;   /* Màu đồng cổ */
-    --accent2: #a68b5e;
-    --border: rgba(44, 42, 37, 0.15);
-    --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    --card: rgba(255, 255, 255, 0.25);
-}
-
-[data-theme="dark"] {
-    --bg: #0f0e0c;
-    --bg2: #171512;
-    --text: #f0e7d6;
-    --muted: #b8ad98;
-    --accent: #8B0000;
-    --accent2: #8f6e3a;
-    --border: rgba(240, 231, 214, 0.16);
-    --shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    --bg: #04101e;
+    /* Xanh thẫm rất tối */
+    --bg2: #081a2e;
+    --text: #e0f2fe;
+    /* Màu chữ trắng xanh nhạt */
+    --muted: #84a2bf;
+    --accent: #c2a878;
+    --border: rgba(224, 242, 254, 0.1);
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
     --card: rgba(255, 255, 255, 0.05);
 }
 
@@ -33,9 +22,14 @@ html {
 body {
     margin: 0;
     font-family: "Cormorant Garamond", serif;
-    background: radial-gradient(circle at 20% 0%, var(--bg2), var(--bg));
+    background-color: var(--bg);
+    /* Nền tối dự phòng phòng khi mạng lag chưa tải được ảnh */
+    background-image: url('../img/wallpic.png');
+    /* ĐƯỜNG DẪN CHUẨN LÀ ĐÂY */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text);
-    letter-spacing: 0.2px;
 }
 
 a {
@@ -52,9 +46,18 @@ a {
     position: sticky;
     top: 0;
     z-index: 50;
-    backdrop-filter: blur(10px);
-    background: rgba(242, 234, 216, 0.75);
-    border-bottom: 1px solid var(--border);
+
+    /* --- HIỆU ỨNG APPLE LIQUID GLASS --- */
+    background: rgba(255, 255, 255, 0.03);
+    /* Lớp kính trong suốt gần như vô hình */
+    backdrop-filter: blur(24px) saturate(150%);
+    /* Làm nhòe và rực rỡ hình ảnh/chữ chạy phía sau */
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    /* Hỗ trợ riêng cho Safari/iOS */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* Cạnh viền kính phản chiếu ánh sáng cực mỏng */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    /* Bóng đổ hắt xuống tạo cảm giác tấm kính nổi lên */
 }
 
 [data-theme="dark"] .nav {
@@ -81,7 +84,8 @@ a {
     font-size: 18px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--accent); /* Thêm dòng này để đổi sang màu đỏ rượu */
+    color: var(--accent);
+    /* Thêm dòng này để đổi sang màu đỏ rượu */
 }
 
 .brand .sub {
@@ -101,7 +105,8 @@ a {
     border-radius: 10px;
     transition: 0.2s;
     color: var(--muted);
-    color: var(--accent); /* Đổi từ var(--muted) sang đỏ rượu */
+    color: var(--accent);
+    /* Đổi từ var(--muted) sang đỏ rượu */
 }
 
 .menu a:hover {
@@ -152,15 +157,24 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
 .hero h1 {
+    /* GIỮ NGUYÊN SETTING CŨ ĐỂ CHỮ THANH MẢNH */
     font-family: 'Pinyon Script', cursive !important;
-    font-weight: 400;
-    font-size: clamp(60px, 9vw, 90px); /* Tăng size để bù cho nét mảnh */
+    font-weight: 400; /* Trả lại độ mảnh ban đầu */
+    font-size: clamp(60px, 9vw, 90px);
     line-height: 1.2;
-    color: var(--accent);
+    
+    /* MÀU VÀNG CHAMPAGNE SÁNG (hoặc cậu dùng #c2a878) */
+    color: #E5C48B; 
+    
     margin: 0 0 20px;
     text-transform: none;
     letter-spacing: 1px;
+    
+    /* FIX LỖI CHỮ BÉO: Chỉ dùng 1 quầng sáng mờ tịt ở xa, KHÔNG dùng lõi sáng */
+    text-shadow: 
+        0 0 15px rgba(229, 196, 139, 0.3); 
 }
 
 .hero p {
@@ -185,8 +199,10 @@ a {
 }
 
 .hero-card .frame {
-    border: 3px double var(--border); /* Đổi từ dashed sang double */
-    border-radius: 2px; /* Góc nhọn hoặc bo rất nhẹ sẽ ra chất Gothic hơn là bo tròn 18px */
+    border: 3px double var(--border);
+    /* Đổi từ dashed sang double */
+    border-radius: 2px;
+    /* Góc nhọn hoặc bo rất nhẹ sẽ ra chất Gothic hơn là bo tròn 18px */
     padding: 18px;
     min-height: 240px;
     display: grid;
