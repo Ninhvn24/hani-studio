@@ -101,7 +101,7 @@ a {
 }
 
 .menu a {
-    padding: 6px 8px;
+    padding: 10px 12px;
     border-radius: 10px;
     transition: 0.2s;
     color: var(--muted);
@@ -298,4 +298,32 @@ a {
 .fade.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- TỐI ƯU CHO ĐIỆN THOẠI (Mobile UI) --- */
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-wrap: wrap; /* Cho phép các khối rớt dòng */
+        justify-content: center; 
+        gap: 15px;
+        position: relative;
+    }
+    
+    .brand {
+        flex: 1 1 100%; /* Ép Logo chiếm trọn hàng đầu tiên */
+        text-align: center;
+    }
+    
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap; /* Chữ menu dài quá sẽ tự rớt dòng */
+        gap: 12px;
+        font-size: 14px;
+    }
+    
+    .controls {
+        position: absolute; /* Neo nút EN/VI ở góc trên cùng bên phải */
+        top: 15px;
+        right: 0;
+    }
 }
