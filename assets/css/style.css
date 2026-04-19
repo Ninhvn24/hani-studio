@@ -59,11 +59,6 @@ a {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     /* Bóng đổ hắt xuống tạo cảm giác tấm kính nổi lên */
 }
-
-[data-theme="dark"] .nav {
-    background: rgba(15, 14, 12, 0.70);
-}
-
 .nav-inner {
     display: flex;
     align-items: center;
@@ -79,7 +74,6 @@ a {
 
 .brand .name {
     font-family: "Cormorant Garamond", serif;
-    /* Đổi Cinzel thành font này */
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 1px;
@@ -112,10 +106,6 @@ a {
 .menu a:hover {
     color: var(--text);
     background: rgba(0, 0, 0, 0.05);
-}
-
-[data-theme="dark"] .menu a:hover {
-    background: rgba(255, 255, 255, 0.06);
 }
 
 .controls {
@@ -217,10 +207,11 @@ a {
 }
 
 .section h2 {
-    font-family: "Cinzel", serif;
+    font-family: "Playfair Display", serif; /* Đổi thành Playfair Display */
     letter-spacing: 1px;
     margin: 0 0 14px;
     font-size: 28px;
+    text-transform: uppercase; /* Thêm dòng này để ép chữ in hoa */
 }
 
 .section p {
@@ -258,9 +249,10 @@ a {
 
 .card h3 {
     margin: 0 0 8px;
-    font-family: "Cinzel", serif;
+    font-family: "Playfair Display", serif; /* Đổi thành Playfair Display */
     font-size: 16px;
     letter-spacing: 0.8px;
+    text-transform: uppercase; /* Thêm dòng này để ép chữ in hoa */
 }
 
 .card p {
