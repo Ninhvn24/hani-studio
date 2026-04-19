@@ -24,7 +24,7 @@ body {
     font-family: "Cormorant Garamond", serif;
     background-color: var(--bg);
     /* Nền tối dự phòng phòng khi mạng lag chưa tải được ảnh */
-    background-image: url('../img/wallpic.png');
+    background-image: url('../img/wallpic.webp');
     /* ĐƯỜNG DẪN CHUẨN LÀ ĐÂY */
     background-size: cover;
     background-position: center;
