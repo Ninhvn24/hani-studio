@@ -1,120 +1,366 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HANI.STUDIO — Phạm Hải Ninh</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Phạm Hải Ninh | CV</title>
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --line: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .cv {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      background: var(--card);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .sidebar {
+      background: #111827;
+      color: white;
+      padding: 36px 28px;
+    }
+
+    .main {
+      padding: 36px 42px;
+    }
+
+    .name {
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .role {
+      color: #93c5fd;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar .section h2 {
+      color: #93c5fd;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .item h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .time {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar .time,
+    .sidebar p,
+    .sidebar li {
+      color: #d1d5db;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .contact p {
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      background: #eaf1ff;
+      color: #1d4ed8;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .sidebar .skill {
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .lang-switch {
+      text-align: right;
+      margin-bottom: 16px;
+    }
+
+    button {
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 9px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      .cv {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        padding: 30px 24px;
+      }
+
+      .sidebar {
+        padding: 30px 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="nav">
-        <div class="container nav-inner">
-            <div class="brand">
-                <div class="name">HANI.STUDIO</div>
-                <div class="sub" data-en="Personal Archive" data-vi="Kho lưu trữ cá nhân"></div>
-            </div>
+  <div class="container">
+    <div class="lang-switch">
+      <button onclick="switchLang()">English / Tiếng Việt</button>
+    </div>
 
-            <nav class="menu">
-                <a href="index.html" data-en="Home" data-vi="Trang chủ"></a>
-                <a href="about.html" data-en="About" data-vi="Giới thiệu"></a>
-                <a href="lookbook.html" data-en="Lookbook" data-vi="Bộ sưu tập"></a>
-                <a href="contact.html" data-en="Contact" data-vi="Liên hệ"></a>
-            </nav>
+    <!-- VIETNAMESE CV -->
+    <div id="vi" class="cv">
+      <aside class="sidebar">
+        <h1 class="name">Nguyễn Phạm<br>Hải Ninh</h1>
+        <p class="role">Nhân viên trực điện thoại</p>
 
-            <div class="controls">
-                <button class="btn" id="langBtn">EN</button>
-            </div>
+        <div class="section contact">
+          <h2>Liên hệ</h2>
+          <p>📞 0389829769</p>
+          <p>✉️ ngphhaininh@gmail.com</p>
+          <p>📍 488 Bạch Mai, Hà Nội</p>
+          <p>🎂 24/11/2006</p>
         </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="fade">
-                    <h1 data-en="Phạm Hải Ninh" data-vi="Phạm Hải Ninh"></h1>
-                    <p data-en="Secondhand curator. Victorian-inspired styling. Personal archive of outfits, textures, and quiet details."
-                        data-vi="Người tuyển chọn đồ secondhand. Phong cách lấy cảm hứng Victorian Gothic. Kho lưu trữ cá nhân về outfit.">
-                    </p>
-
-                    <p class="tagline"
-                        data-en="“Victorian Gothic heart, Minimalist mind, Pure swag. Curating a clean archive where luxury meets the street.”"
-                        data-vi="“Phối đồ tối giản, clean vãi cả c*c, tao lại chả chất vcl.”"></p>
-                </div>
-
-                <div class="hero-card fade">
-                    <div class="frame" data-en="Portrait / photo goes here"
-                        data-vi="Ảnh chân dung / ảnh đại diện đặt tại đây"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container fade">
-                <h2 data-en="What I Do" data-vi="Tôi làm gì"></h2>
-                <p data-en="I curate secondhand pieces, occasionally design small handmade items, and document fashion as a personal discipline."
-                    data-vi="Tôi tuyển chọn đồ secondhand, thỉnh thoảng tự thiết kế những món handmade nhỏ, và ghi lại thời trang như một kỷ luật cá nhân.">
-                </p>
-
-                <div class="grid">
-                    <div class="card fade">
-                        <h3 data-en="Secondhand Archive" data-vi="Kho đồ Secondhand"></h3>
-                        <p data-en="Curated pieces, chosen for silhouette, fabric, and mood."
-                            data-vi="Đồ được tuyển chọn dựa trên form dáng, chất liệu và khí chất."></p>
-                    </div>
-
-                    <div class="card fade">
-                        <h3 data-en="Victorian Aesthetic" data-vi="Thẩm mỹ Victorian"></h3>
-                        <p data-en="Old-world elegance, modern wearability."
-                            data-vi="Tinh thần cổ điển nhưng vẫn mặc được trong đời sống hiện đại."></p>
-                    </div>
-
-                    <div class="card fade">
-                        <h3 data-en="Content & Styling" data-vi="Nội dung & Phối đồ"></h3>
-                        <p data-en="Outfit studies, lookbooks, and visual storytelling."
-                            data-vi="Nghiên cứu outfit, lookbook và kể chuyện bằng hình ảnh."></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container fade">
-                <h2 data-en="Current Direction" data-vi="Hướng đi hiện tại"></h2>
-                <p data-en="I am building a personal wardrobe archive and a curated selling page. This site will grow into a private shop and portfolio."
-                    data-vi="Tôi đang xây dựng kho lưu trữ tủ đồ cá nhân và một trang bán đồ tuyển chọn. Website này sẽ dần phát triển thành shop nhỏ và portfolio chuyên nghiệp.">
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div>
-                <div><strong>HANI.STUDIO</strong></div>
-                <div data-en="Phạm Hải Ninh — Personal Victorian Archive"
-                    data-vi="Phạm Hải Ninh — Kho lưu trữ Victorian cá nhân"></div>
-            </div>
-
-            <div>
-                <div>
-                    <a href="contact.html" data-en="Contact" data-vi="Liên hệ"></a>
-                </div>
-                <div style="margin-top:8px;">
-                    <span data-en="Language saved locally." data-vi="Cài đặt ngôn ngữ được lưu trên máy."></span>
-                </div>
-            </div>
+        <div class="section">
+          <h2>Kỹ năng</h2>
+          <div class="skills">
+            <span class="skill">Chăm sóc khách hàng</span>
+            <span class="skill">Giao tiếp</span>
+            <span class="skill">Xử lý tình huống</span>
+            <span class="skill">Tin học văn phòng</span>
+            <span class="skill">Làm việc nhóm</span>
+            <span class="skill">Dịch thuật Anh - Việt</span>
+          </div>
         </div>
-    </footer>
 
-    <script src="assets/js/main.js"></script>
+        <div class="section">
+          <h2>Ngoại ngữ</h2>
+          <p>IELTS 6.0</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="section">
+          <h2>Mục tiêu nghề nghiệp</h2>
+          <p>
+            Sinh viên chuyên ngành Quản trị Kinh doanh tại Đại học Thương Mại,
+            có kinh nghiệm trong lĩnh vực bán hàng và chăm sóc khách hàng.
+            Mong muốn ứng tuyển vị trí Nhân viên trực điện thoại để phát huy
+            kỹ năng giao tiếp, lắng nghe, xử lý thông tin và hỗ trợ khách hàng
+            một cách chuyên nghiệp.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Kinh nghiệm làm việc</h2>
+          <div class="item">
+            <h3>Nhân viên bán hàng</h3>
+            <p class="time">08/2024 - 04/2026</p>
+            <ul>
+              <li>Tư vấn và hỗ trợ khách hàng trong quá trình mua hàng.</li>
+              <li>Giới thiệu sản phẩm, thực hiện upselling và chăm sóc khách hàng.</li>
+              <li>Giải đáp thắc mắc và xử lý các vấn đề phát sinh của khách hàng.</li>
+              <li>Rèn luyện kỹ năng giao tiếp, lắng nghe và xử lý tình huống.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Học vấn</h2>
+          <div class="item">
+            <h3>Đại học Thương Mại</h3>
+            <p class="time">2024 - Dự kiến tốt nghiệp 2028</p>
+            <p>Chuyên ngành: Quản trị Kinh doanh</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Chứng chỉ</h2>
+          <ul>
+            <li>IELTS 6.0</li>
+            <li>Chứng chỉ Tin học Quản lý - Đại học Thương Mại</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Hoạt động ngoại khóa</h2>
+          <p><strong>Band 2.5.9</strong> - Guitarist</p>
+          <p>Tham gia hoạt động nhóm, biểu diễn và phát triển kỹ năng phối hợp tập thể.</p>
+        </div>
+      </main>
+    </div>
+
+    <!-- ENGLISH CV -->
+    <div id="en" class="cv hidden">
+      <aside class="sidebar">
+        <h1 class="name">Nguyen Pham<br>Hai Ninh</h1>
+        <p class="role">Telephone Operator</p>
+
+        <div class="section contact">
+          <h2>Contact</h2>
+          <p>📞 +84 389 829 769</p>
+          <p>✉️ ngphhaininh@gmail.com</p>
+          <p>📍 488 Bach Mai, Hanoi, Vietnam</p>
+          <p>🎂 24/11/2006</p>
+        </div>
+
+        <div class="section">
+          <h2>Skills</h2>
+          <div class="skills">
+            <span class="skill">Customer Service</span>
+            <span class="skill">Telephone Communication</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Microsoft Office</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">English-Vietnamese Translation</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Language</h2>
+          <p>English - IELTS 6.0</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="section">
+          <h2>Professional Summary</h2>
+          <p>
+            Business Administration student at Thuong Mai University with
+            experience in sales and customer service. Strong communication
+            skills, IELTS 6.0, and the ability to handle customer inquiries
+            professionally. Seeking a Telephone Operator or Customer Service
+            position to further develop communication and customer support skills.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Work Experience</h2>
+          <div class="item">
+            <h3>Sales Associate</h3>
+            <p class="time">08/2024 - 04/2026</p>
+            <ul>
+              <li>Assisted customers with product selection and purchasing decisions.</li>
+              <li>Provided product information and customer support professionally.</li>
+              <li>Performed upselling to increase sales opportunities.</li>
+              <li>Handled customer inquiries and solved basic customer issues.</li>
+              <li>Developed communication, listening, and problem-solving skills.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Education</h2>
+          <div class="item">
+            <h3>Thuong Mai University</h3>
+            <p class="time">2024 - Expected 2028</p>
+            <p>Major: Business Administration</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Certificates</h2>
+          <ul>
+            <li>IELTS 6.0</li>
+            <li>Management Informatics Certificate - Thuong Mai University</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Extracurricular Activities</h2>
+          <p><strong>Band 2.5.9</strong> - Guitarist</p>
+          <p>Participated in team performances and developed collaboration skills.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function switchLang() {
+      const vi = document.getElementById("vi");
+      const en = document.getElementById("en");
+
+      vi.classList.toggle("hidden");
+      en.classList.toggle("hidden");
+    }
+  </script>
 </body>
-
 </html>
+```
